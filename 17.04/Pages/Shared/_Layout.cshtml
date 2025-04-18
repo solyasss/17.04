@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - GuestBook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg" style="background-color:#ffe4ec;">
+    <div class="container">
+        <a class="navbar-brand" style="color:#d63384;font-weight:bold;font-size:1.3rem;" asp-page="/Index">GuestBook</a>
+        <div class="navbar-nav">
+            <a class="nav-link" style="color:#d63384;" asp-page="/Registration">Registration</a>
+            <a class="nav-link" style="color:#d63384;" asp-page="/Login">Login</a>
+            <a class="nav-link" style="color:#d63384;display:none;" href="javascript:void(0)" id="nav-logout">Logout</a>
+        </div>
+    </div>
+</nav>
+<div class="container py-4">
+    @RenderBody()
+</div>
+<footer class="text-center py-3" style="background-color:#fff0f6;color:#d63384;">
+    <div>© @DateTime.Now.Year - GuestBook</div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+@RenderSection("Scripts", required: false)
+</body>
+</html>

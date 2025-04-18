@@ -1,0 +1,35 @@
+@page
+@model RegistrationModel
+@{
+    ViewData["Title"] = "Registration";
+    Layout = "_Layout";
+}
+<h2 style="color:#d63384;">Registration</h2>
+<hr />
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-2">
+        <label asp-for="model.name" class="control-label" style="font-weight:bold;"></label>
+        <input asp-for="model.name" class="form-control" />
+        <span asp-validation-for="model.name" class="text-danger"></span>
+    </div>
+    <div class="mb-2">
+        <label asp-for="model.login" class="control-label" style="font-weight:bold;"></label>
+        <input asp-for="model.login" class="form-control" />
+        <span asp-validation-for="model.login" class="text-danger"></span>
+    </div>
+    <div class="mb-2">
+        <label asp-for="model.password" class="control-label" style="font-weight:bold;"></label>
+        <input asp-for="model.password" class="form-control" />
+        <span asp-validation-for="model.password" class="text-danger"></span>
+    </div>
+    <div class="mb-2">
+        <label asp-for="model.confirm_password" class="control-label" style="font-weight:bold;"></label>
+        <input asp-for="model.confirm_password" class="form-control" />
+        <span asp-validation-for="model.confirm_password" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn" style="background-color:#ffc0cb;color:white;">Register</button>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

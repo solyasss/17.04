@@ -1,0 +1,40 @@
+﻿@page
+@model _17._04.Pages.IndexModel
+@{
+    ViewData["Title"] = "Guest Book";
+}
+<h2 style="color:#d63384;">Guest Book</h2>
+<hr />
+
+<div class="fw-bold fs-4">@Model.welcome_message</div>
+
+<div id="messages-container">
+    @foreach (var m in Model.messages)
+    {
+        <div class="border p-2 mb-2">
+            <strong>@m.user_name</strong>
+            <span class="text-muted float-end">@m.date.ToString("g")</span>
+            <div>@m.text</div>
+        </div>
+    }
+</div>
+
+@if (Model.can_post)
+{
+    <div class="mt-4">
+        <h5>Add a new message</h5>
+        <form method="post">
+            <textarea asp-for="new_message" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="new_message" class="text-danger"></span>
+            <button type="submit" class="btn mt-2" style="background-color:#ffc0cb;color:white;">Add message</button>
+        </form>
+    </div>
+}
+else
+{
+    <p><em>You must be logged in to add messages.</em></p>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

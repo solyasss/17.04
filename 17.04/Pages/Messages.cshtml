@@ -1,0 +1,17 @@
+@page
+@model MessagesModel
+@{
+    ViewData["Title"] = "Messages";
+    Layout = "_Layout";
+}
+<h2 style="color:#d63384;">All Messages</h2>
+<hr />
+
+@foreach (var m in Model.messages)
+{
+    <div class="border p-2 mb-2">
+        <strong>@m.user_name</strong>
+        <span class="text-muted" style="float:right;">@m.date.ToString("g")</span>
+        <div>@m.text</div>
+    </div>
+}
